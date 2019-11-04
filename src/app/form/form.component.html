@@ -1,0 +1,170 @@
+<div id="mydiv"  class="container" >
+    <h2 >Registration form</h2>
+    <br/>
+    <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()" >
+      
+      <div class="form-group">
+            <label for="userName" >User name</label>
+            <input type="userName" class="form-control"  placeholder="User Name" [class.is-invalid]="email.invalid && email.touched"  formControlName="userName">
+    
+            <!-- <small [class.d-none]="phone.valid || phone.untouched"  class="alert alert-danger">first Name is required</small>-->
+                <div *ngIf="userName.invalid && userName.touched" >
+                    <br/>
+                <small *ngIf="userName.errors?.required"  class="alert alert-danger">user Name is required</small>
+                <small *ngIf="userName.errors?.pattern"  class="alert alert-danger">Invalid User Name </small>
+                </div>
+    
+       </div>
+      <div class="form-group">
+        <label for="email" >Email:</label>
+        <input type="email" class="form-control"  placeholder="Enter email" [class.is-invalid]="email.invalid && email.touched"  formControlName="email">
+
+        <!-- <small [class.d-none]="phone.valid || phone.untouched"  class="alert alert-danger">first Name is required</small>-->
+            <div *ngIf="email.invalid && email.touched" >
+                <br/>
+            <small *ngIf="email.errors?.required"  class="alert alert-danger">email is required</small>
+            <small *ngIf="email.errors?.email"  class="alert alert-danger">Invalid email </small>
+            </div>
+
+      </div>
+     
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" 
+        name="pswd" formControlName="password">
+
+        <div *ngIf="password.invalid && password.touched" >
+            <br/>
+            <small *ngIf="password.errors?.required"  class="alert alert-danger">Password is required</small>
+            <small *ngIf="password.errors?.minlength"  class="alert alert-danger">Minimum 8 charecter is required</small>
+            <small *ngIf="password.errors?.pattern"  class="alert alert-danger">Maximum 16 charecter is allowed</small>
+            </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" class="form-control"  placeholder="Enter Phone number" [class.is-invalid]="phone.invalid && phone.touched"  formControlName="phone">
+
+        <!-- <small [class.d-none]="phone.valid || phone.untouched"  class="alert alert-danger">first Name is required</small>-->
+            <div *ngIf="phone.invalid && phone.touched" >
+                <br/>
+            <small *ngIf="phone.errors?.required"  class="alert alert-danger">phone is required</small>
+            <small *ngIf="phone.errors?.minlength"  class="alert alert-danger">minimum 10 digit is required  </small>
+            <small *ngIf="phone.errors?.maxlength"  class="alert alert-danger">maximum 10 digit are allowed </small>
+            <small *ngIf="phone.errors?.pattern"  class="alert alert-danger">Phone Number must be digit without any charecter </small>
+            </div>
+
+      </div>
+      
+
+     <br/>
+     <div formGroupName="address" >
+        <fieldset>
+            <!-- Address form -->
+     
+            <h4>Address</h4>
+     
+          
+            <!-- address-line1 input-->
+            <div class="control-group">
+                <label class="control-label">Address Line 1</label>
+                <div class="controls">
+                    <input id="address-line1" name="address-line1" type="text" placeholder="address line 1"
+                    class="form-control input-lg" formControlName="street">
+                    
+                        <div *ngIf="street.invalid && street.touched" >
+                            <br/>  
+                        <small *ngIf="street.errors?.required"  class="alert alert-danger">Addres is required</small>
+                       
+                        </div>
+                </div>
+            </div>
+            <br/>
+           
+            <!-- city input-->
+            <div class="control-group">
+                <label class="control-label">City / Town</label>
+                <div class="controls">
+                    <input id="city" name="city" type="text" placeholder="city" class="form-control input-lg" formControlName="city">
+                    <p class="help-block"></p>
+                         <div *ngIf="city.invalid && city.touched" >
+                            
+                        <small *ngIf="city.errors?.required"  class="alert alert-danger">city is required</small>
+                       
+                        </div>
+                </div>
+            </div>
+            <br/>
+            <!-- region input-->
+            <div class="control-group">
+                <label class="control-label">State / Province / Region</label>
+                <div class="controls">
+                    <input id="region" name="region" type="text" placeholder="state / province / region"
+                    class="form-control input-lg" formControlName="state">
+                    <p class="help-block"></p>
+                        <div *ngIf=" state.invalid &&  state.touched" >
+                            
+                        <small *ngIf=" state.errors?.required"  class="alert alert-danger">state is required</small>
+                       
+                        </div>
+                </div>
+            </div>
+            <br/>
+            <!-- postal-code input-->
+            <div class="control-group">
+                <label class="control-label">Zip / Postal Code</label>
+                <div class="controls">
+                    <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code"
+                    class="input-xlarge" formControlName="zip">
+                    <p class="help-block"></p>
+
+                       <div *ngIf=" zip.invalid &&  zip.touched" >
+                        
+                        <small *ngIf=" zip.errors?.required"  class="alert alert-danger">zip is required</small>
+                       
+                        </div>
+                </div>
+            </div>
+            <br/>
+            <!-- country select -->
+            <div class="control-group">
+                <label class="control-label">Country</label>
+                <div class="controls">
+                    <select id="country" name="country" class="input-xlarge">
+                        <option value="" selected="selected">(please select a country)</option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="AL">Albania</option>
+                        
+                        <option value="YE">Yemen</option>
+                        <option value="YU">Yugoslavia</option>
+                        <option value="ZM">Zambia</option>
+                        <option value="ZW">Zimbabwe</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+      </div>
+     
+  
+      <br/>
+      <button type="submit" class="btn btn-success" [disabled]="!profileForm.valid">Submit</button>
+    
+    </form>
+
+
+      <div *ngIf="profile">
+      <p id="myresult">
+   your phone : {{profile.phone}}
+    <br/>
+    your password :{{profile.password}}
+    <br/>
+    your city :{{profile.address.city}}
+    <br/>
+   your state : {{profile.address.state}}
+    <br/>
+   
+    </p>
+    </div>
+     
+  </div>
+

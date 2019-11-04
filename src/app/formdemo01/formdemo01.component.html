@@ -1,0 +1,121 @@
+<div id="customCointainer" class="container-fluid" >
+    
+    <br/>
+    <h1 id="enroll" >Enrollment Form </h1>
+    <br/>
+    
+        
+        
+
+           <form [formGroup]="profileForm"  (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                 <label class="label"  >
+                 First Name:
+                 <input type="text" class="form-control" id="email" [class.is-invalid]="firstName.invalid && firstName.touched"  formControlName="firstName" >
+                 </label>
+
+         <!-- <small [class.d-none]="firstName.valid || firstName.untouched"  class="text-danger">first Name is required</small>-->
+                <div *ngIf="firstName.invalid && firstName.touched" >
+        
+                <small *ngIf="firstName.errors?.required"  class="text-danger">first Name is required</small>
+                <small *ngIf="firstName.errors?.minlength"  class="text-danger">Minimum 4 charecter is required</small>
+                </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="form-group">
+                  <label class="label">
+                   Last Name:
+                  <input class="form-control" type="text" formControlName="lastName" required>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <div formGroupName="address">
+                    <h5>Address</h5>
+
+                    <div class="form-group">
+
+                    <label class="label">
+                    Street:
+                    <input class="form-control" type="text" formControlName="street">
+                    </label>
+
+                    </div>
+
+                    <div class="form-group">
+
+                    <label class="label">
+                    City:
+                    <input class="form-control" type="text" formControlName="city">
+                    </label>
+
+                    </div>
+
+
+                      <div class="form-group">
+                    
+                        <label class="label">
+                      State:
+                      <input class="form-control" type="text" formControlName="state" required>
+                        </label>
+              
+                      </div>
+             
+                      <div class="form-group">
+              
+                        <label class="label">
+                        Zip Code:
+                
+                        <input class="form-control" type="text" formControlName="zip">
+              
+                      </label>
+            
+                      </div>
+
+                      <div class="label" class="form-group">
+                      <select name="cars" class="custom-select">
+                          <option selected>Custom Select Menu</option>
+                          <option value="volvo">Volvo</option>
+                          <option value="fiat">Fiat</option>
+                          <option value="audi">Audi</option>
+                        </select>
+                      </div>
+                  </div>
+          </div>
+         <!--  <button type="submit" >Submit</button>-->
+
+         <!-- <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">Submit </button>-->
+         <button class="btn btn-dark btn-lg" type="submit" >Submit </button>
+       
+        </form>
+
+      
+        <div class="alert alert-success">
+           <p>
+            <button class="btn btn-dark btn-lg" class="btn btn-info" (click)="updateProfile()">Update Profile</button>
+          </p>
+
+       
+       
+        </div>
+
+        
+      
+      
+      
+      
+
+
+</div>

@@ -1,0 +1,38 @@
+#head{
+    text-align: left;
+    color: yellowgreen;
+    
+      margin-bottom: 50px;
+      margin-right: 120px;
+    
+    
+      padding-right: 30px;
+      padding-bottom: 50px;
+      
+    }
+    
+    #enroll{
+      text-align: center;
+      margin-right: 140px;
+      color:royalblue;
+      font-size: 50px;
+    
+    }
+    #customCointainer{
+      text-align: center;
+      margin-right: 140px;
+      background-color: aqua;
+      margin-bottom: 50px;
+      margin-right: 120px;
+    
+    
+      padding-right: 30px;
+      padding-bottom: 50px;
+    }
+    
+    .label{
+      font-size: 30px;
+    
+    }
+    
+    
